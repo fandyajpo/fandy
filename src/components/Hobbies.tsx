@@ -65,7 +65,7 @@ const stats = [
 
 export default function Hobbies() {
   return (
-    <section id="hobbies" className="relative isolate border-t-[3px] border-ink bg-cream py-24">
+    <section id="hobbies" className="relative isolate overflow-hidden border-t-[3px] border-ink bg-cream py-24">
       <FloatingBlobs />
       <div className="dots absolute inset-0 opacity-30" />
 
@@ -192,7 +192,7 @@ function CarCard({ car, index }: { car: (typeof cars)[number]; index: number }) 
       data-cursor
       className="group relative [transform-style:preserve-3d]"
     >
-      <div className="brutal bg-paper">
+      <div className="brutal bg-paper overflow-hidden">
         <div className="relative aspect-[4/3] overflow-hidden border-b-[3px] border-ink">
           <Image
             src={car.img}

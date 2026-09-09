@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative isolate mt-24 border-t-[3px] border-ink bg-purple"
+      className="relative isolate mt-24 overflow-hidden border-t-[3px] border-ink bg-purple"
     >
       <FloatingBlobs />
       <Marquee

@@ -60,7 +60,7 @@ const levels = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative isolate border-t-[3px] border-ink bg-cyan py-24">
+    <section id="skills" className="relative isolate overflow-hidden border-t-[3px] border-ink bg-cyan py-24">
       <FloatingBlobs />
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -160,9 +160,10 @@ export default function Skills() {
       </div>
 
       {/* Skill marquee */}
-      <div className="mt-16 -rotate-1">
-        <div className="overflow-hidden border-y-[3px] border-ink bg-paper py-3">
-          <div className="marquee-track marquee-reverse">
+      <div className="mt-16 overflow-hidden">
+        <div className="-rotate-1">
+          <div className="overflow-hidden border-y-[3px] border-ink bg-paper py-3">
+            <div className="marquee-track marquee-reverse">
             {[...cta, ...cta].map((text, i) => (
               <span
                 key={i}
@@ -174,6 +175,7 @@ export default function Skills() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

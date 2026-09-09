@@ -57,7 +57,7 @@ const jobs = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative isolate border-t-[3px] border-ink bg-paper py-24">
+    <section id="experience" className="relative isolate overflow-hidden border-t-[3px] border-ink bg-paper py-24">
       <FloatingBlobs />
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">

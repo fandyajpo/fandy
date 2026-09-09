@@ -170,10 +170,10 @@ export default function Hero() {
         Fresh build
       </motion.div>
 
-      <div className="relative mt-10">
+      <div className="relative mt-10 overflow-hidden">
         <Marquee items={marqueeItems} />
       </div>
-      <div className="relative mt-3">
+      <div className="relative mt-3 overflow-hidden">
         <Marquee items={marqueeItems} reverse slow />
       </div>
     </section>
