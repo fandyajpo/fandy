@@ -100,11 +100,11 @@ export default function Experience() {
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className={`${left ? "md:col-start-1 text-right md:pr-16" : "md:col-start-2 md:pl-16"}`}
+                    className={`pl-14 ${left ? "md:col-start-1 md:pl-0 md:text-right md:pr-16" : "md:col-start-2 md:pl-16"}`}
                   >
                     <Chaotic
                       data-cursor
-                      className={`brutal inline-block bg-paper p-6 text-left ${left ? "rot-2" : "rot-1"}`}
+                      className={`brutal block w-full bg-paper p-6 text-left md:inline-block ${left ? "rot-2" : "rot-1"}`}
                     >
                       <div className="mb-3 flex flex-wrap items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest">
                         <span className={`border-2 border-ink px-2 py-1 text-chip ${job.color}`}>{job.tag}</span>
@@ -128,7 +128,7 @@ export default function Experience() {
                   </motion.div>
 
                   <div
-                    className={`absolute left-[19px] top-3 z-10 flex size-10 -translate-x-1/2 items-center justify-center border-[3px] border-ink bg-ink font-mono text-sm font-bold text-inverted md:left-1/2`}
+                    className={`absolute left-[19px] top-3 z-10 flex size-10 -translate-x-1/2 items-center justify-center border-[3px] border-ink bg-ink font-mono text-sm font-bold text-inverted md:left-1/2 md:-translate-x-1/2`}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </div>
