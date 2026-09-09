@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+@theme {
+  /* TURBO — "HOT RACE" (default) */
+  --color-cream: #fff2d3;
+  --color-paper: #fffdf4;
+  --color-ink: #1c1713;
+  --color-inverted: #fffdf4;
+  --color-chip: #1c1713;
+  --color-pop: #ffd400;
+  --color-pink: #ff3d63;
+  --color-cyan: #00c2ff;
+  --color-lime: #d0ff45;
+  --color-orange: #ff6b00;
+  --color-purple: #8a5cff;
+}
+
+/* CHAOS — "NEON NIGHT": deep charcoal base + neon accents */
+.chaos-mode {
+  --color-cream: #14141a;
+  --color-paper: #1c1c24;
+  --color-ink: #f0ede4;
+  --color-inverted: #14141a;
+  --color-chip: #14141a;
+  --color-pop: #ffe14d;
+  --color-pink: #ff4d8f;
+  --color-cyan: #3defff;
+  --color-lime: #a6ff3e;
+  --color-orange: #ff8a1e;
+  --color-purple: #a78bff;
+}
+
+/* Turbo mode: speed + wobble, original colors */
+.turbo-mode {
+  --marquee-dur: 6s;
+  --marquee-slow-dur: 9s;
+}
+
+/* ---- Turbo mode: speed + wobble, original colors ---- */
+.turbo-mode {
+  --marquee-dur: 6s;
+  --marquee-slow-dur: 9s;
+}
+
+@keyframes chaos-wobble {
+  from {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+.turbo-mode .sticker {
+  animation: chaos-wobble 0.35s ease-in-out infinite alternate;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* ---- Neo-brutalist building blocks ---- */
+.brutal {
+  border: 3px solid var(--color-ink);
+  box-shadow: 8px 8px 0 0 var(--color-ink);
+}
+
+.brutal-sm {
+  border: 3px solid var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+}
+
+.brutal-soft {
+  border: 3px solid var(--color-ink);
+  box-shadow: 10px 10px 0 0 var(--color-ink);
+}
+
+.brutal-hover {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.brutal-hover:hover {
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+  transform: translate(2px, 2px);
+}
+
+.sticker {
+  border: 3px solid var(--color-ink);
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+  transform: rotate(-3deg);
+}
+
+/* ---- Film grain / raw texture ---- */
+.grain {
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* ---- Marquee ---- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-dur, 22s) linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee-slow {
+  animation-duration: var(--marquee-slow-dur, 34s);
+}
+
+/* ---- Dotted grid backdrop ---- */
+.dots {
+  background-image: radial-gradient(
+    var(--color-ink) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 22px 22px;
+}
+
+/* ---- Random rotation helpers ---- */
+.rot-1 {
+  transform: rotate(-1.5deg);
+}
+
+.rot-2 {
+  transform: rotate(1.5deg);
+}
+
+.rot-3 {
+  transform: rotate(-2.5deg);
+}
+
+/* ---- Custom cursor ---- */
+.cursor-off,
+.cursor-off * {
+  cursor: none !important;
+}
+
+/* ---- Reduce motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--color-pink);
+  color: var(--color-paper);
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+  border-left: 3px solid var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink);
+  border: 3px solid var(--color-cream);
+}
