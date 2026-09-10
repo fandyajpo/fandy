@@ -126,11 +126,17 @@ export default function Hobbies() {
             >
               Porsche 991.1 C4 GTS
             </motion.h3>
-            <p className="max-w-md text-lg leading-relaxed text-paper/80">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="max-w-md text-lg leading-relaxed text-paper/80"
+            >
               Flat-six, quad exhaust, and four doors of&nbsp;
               <span className="bg-purple px-1 text-paper">questionable financial decisions</span>.
               Built code by day, breaking rear tires by dusk.
-            </p>
+            </motion.p>
             <div className="grid grid-cols-2 gap-3 font-mono text-sm font-bold uppercase tracking-wider">
               {stats.map((stat, i) => (
                 <motion.div

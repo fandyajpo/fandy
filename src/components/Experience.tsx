@@ -6,51 +6,38 @@ import FloatingBlobs from "./FloatingBlobs";
 
 const jobs = [
   {
-    period: "2024 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Speedworks Labs",
-    tag: "CURRENT",
+    period: "Oct 2022 — Jun 2026",
+    role: "Fullstack Developer",
+    company: "PT. Miravelle Sunzaryn",
+    tag: "FULLSTACK",
     color: "bg-cyan",
     points: [
-      "Leading the design system powering 4 product lines.",
-      "Cut bundle size 42% and shipped motion-driven UI kits.",
-      "Mentoring 3 juniors in React + performance debugging.",
+      "Managed and maintained client websites including property investment platforms.",
+      "Led website migration to new version with improved architecture.",
     ],
   },
   {
-    period: "2021 — 2024",
-    role: "Full-Stack Developer",
-    company: "Racetrack Digital",
-    tag: "SHIFT + SEND",
-    color: "bg-lime",
-    points: [
-      "Built real-time dashboards tracking 120k vehicles / day.",
-      "OTT map tooling with GPS + telemetry pipelines.",
-      "Promoted twice in 3 years. Yes, the pedal stays down.",
-    ],
-  },
-  {
-    period: "2019 — 2021",
-    role: "Web Developer",
-    company: "Vroom Studio",
-    tag: "LEARNED THE ROPES",
+    period: "Sep 2024 — Jan 2025",
+    role: "Frontend Developer (Internship)",
+    company: "PT Bina Taruna Wiratama",
+    tag: "INTERNSHIP",
     color: "bg-pop",
     points: [
-      "Shipped 20+ marketing & e-commerce sites for car brands.",
-      "First taste of Next.js and fell in love hard.",
-      "Learned CSS grid, may never financially recover.",
+      "Implemented Figma designs into responsive dashboard interfaces.",
+      "Contributed to the development of AI writing platform, Ases AI.",
+      "Built e-learning admin for teachers to create student questions.",
     ],
   },
   {
-    period: "2016 — 2019",
-    role: "Intern → Junior Dev",
-    company: "Pixel Workshop",
-    tag: "FIRST START",
-    color: "bg-pink",
+    period: "Apr 2021 — Aug 2022",
+    role: "Frontend Developer",
+    company: "PT Semua Aplikasi Indonesia",
+    tag: "FIRST ROLE",
+    color: "bg-lime",
     points: [
-      "Fixed bugs. Broke things. Fixed them again. Learned a lot.",
-      "Bought my first project car with internship savings.",
-      "Discovered that semicolons and torque specs share a vibe.",
+      "Built web and mobile apps with Next.js, React Native, and Tailwind CSS.",
+      "Developed responsive web applications from scratch.",
+      "Built mobile app views for Alacarte (food app) and Alamerchant (tenant admin).",
     ],
   },
 ];
@@ -80,7 +67,7 @@ export default function Experience() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="sticker bg-pop px-5 py-3 font-mono text-sm font-bold uppercase tracking-widest text-chip"
           >
-            7+ years in the driver&apos;s seat
+            5+ years in the driver&apos;s seat
           </motion.div>
         </div>
 
@@ -127,11 +114,15 @@ export default function Experience() {
                     </Chaotic>
                   </motion.div>
 
-                  <div
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.4, delay: 0.3, type: "spring", stiffness: 300 }}
                     className={`absolute left-[19px] top-3 z-10 flex size-10 -translate-x-1/2 items-center justify-center border-[3px] border-ink bg-ink font-mono text-sm font-bold text-inverted md:left-1/2 md:-translate-x-1/2`}
                   >
                     {String(i + 1).padStart(2, "0")}
-                  </div>
+                  </motion.div>
                 </div>
               );
             })}

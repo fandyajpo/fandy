@@ -82,12 +82,18 @@ export default function Footer() {
           </Magnetic>
         </motion.div>
 
-        <div className="mt-14 border-t-[3px] border-ink pt-6 font-mono text-xs font-bold uppercase tracking-widest text-chip">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-14 border-t-[3px] border-ink pt-6 font-mono text-xs font-bold uppercase tracking-widest text-chip"
+        >
           © {new Date().getFullYear()} Fandy Ahmad — Built with Next.js +
           Motion.
           <br className="sm:hidden" /> No pixels were neutral in the making of
           this site.
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
