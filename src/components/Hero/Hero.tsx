@@ -135,7 +135,7 @@ export default function Hero() {
             style={{ color: active.accent }}
             aria-live="polite"
           >
-            <span className="hidden sm:inline">{active.chapter} — </span>
+            <span className="hidden sm:inline">{active.chapter} · </span>
             {active.name}
           </div>
 

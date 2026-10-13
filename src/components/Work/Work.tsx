@@ -21,7 +21,7 @@ export default function Work() {
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="label text-peach">03 — Work</p>
+          <p className="label text-peach">03 · Work</p>
         </Reveal>
 
         <Reveal delay={0.06}>
@@ -35,7 +35,7 @@ export default function Work() {
               shipped.
             </h2>
             <p className="label max-w-[300px] text-cream/55">
-              {projects.length} live projects — click any card to visit the
+              {projects.length} live projects. Click any card to visit the
               site.
             </p>
           </div>

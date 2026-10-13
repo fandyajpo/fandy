@@ -51,7 +51,7 @@ export default function Navbar() {
           <a
             href="#top"
             className="display text-[26px] text-cream transition-opacity hover:opacity-75 md:text-3xl"
-            aria-label={`${profile.fullName} — home`}
+            aria-label={`${profile.fullName}, home`}
           >
             {profile.wordmark}
           </a>

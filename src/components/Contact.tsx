@@ -41,7 +41,7 @@ function validate(values: FormValues) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
     errors.email = "That email doesn't look right.";
   if (values.message.trim().length < 10)
-    errors.message = "A few more words, please — at least 10 characters.";
+    errors.message = "A few more words, please, at least 10 characters.";
   return errors;
 }
 
@@ -71,7 +71,7 @@ export default function Contact() {
         `Portfolio enquiry from ${values.name.trim()}`,
       );
       const body = encodeURIComponent(
-        `${values.message.trim()}\n\n— ${values.name.trim()}\n${values.email.trim()}`,
+        `${values.message.trim()}\n\n${values.name.trim()}\n${values.email.trim()}`,
       );
       window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
       setStatus("success");
@@ -100,7 +100,7 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="label text-peach">05 — Get in touch</p>
+          <p className="label text-peach">05 · Get in touch</p>
         </Reveal>
 
         <Reveal delay={0.06}>
@@ -200,7 +200,7 @@ export default function Contact() {
 
                 {status === "success" && (
                   <p className="label text-lime" role="status">
-                    Your mail app should be opening — thank you!
+                    Your mail app should be opening. Thank you!
                   </p>
                 )}
                 {status === "error" && (

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: site.title,
-    template: "%s — Fandy Ahmad",
+    template: "%s | Fandy Ahmad",
   },
   description: site.description,
   applicationName: profile.fullName,

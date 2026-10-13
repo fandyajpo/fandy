@@ -100,7 +100,7 @@ export default function About() {
     <section id="about" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="label text-peach">02 — About</p>
+          <p className="label text-peach">02 · About</p>
         </Reveal>
 
         <Reveal delay={0.06}>

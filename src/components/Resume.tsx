@@ -14,7 +14,7 @@ export default function Resume() {
         {/* print-only header for the downloaded CV */}
         <div className="print-only mb-8 border-b border-black pb-4">
           <p className="display" style={{ fontSize: 34 }}>
-            {profile.fullName} — {profile.role}
+            {profile.fullName} · {profile.role}
           </p>
           <p style={{ fontSize: 13, marginTop: 8 }}>
             {contact.email} · {profile.city}, {profile.country} ·{" "}
@@ -24,7 +24,7 @@ export default function Resume() {
 
         <div className="no-print">
           <Reveal>
-            <p className="label text-peach">04 — Resume</p>
+            <p className="label text-peach">04 · Resume</p>
           </Reveal>
 
           <Reveal delay={0.06}>

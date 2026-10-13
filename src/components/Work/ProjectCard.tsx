@@ -15,7 +15,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       data-cursor
       className="group animate-fade-up flex min-h-[250px] flex-col justify-between border border-cream/25 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-cream hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-peach"
       style={{ animationDelay: `${index * 0.05}s` }}
-      aria-label={`${project.title} — opens live site in a new tab`}
+      aria-label={`${project.title}, opens live site in a new tab`}
     >
       <div className="flex items-start justify-between gap-4">
         <span className="label text-peach transition-colors duration-300 group-hover:text-ink">

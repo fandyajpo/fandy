@@ -90,7 +90,7 @@ export interface SiteMeta {
 }
 
 export const site: SiteMeta = {
-  title: "Fandy Ahmad — Frontend Developer",
+  title: "Fandy Ahmad | Frontend Developer",
   description:
     "Portfolio of Fandy Ahmad, frontend developer from Denpasar, Bali. Build Boldly. Be Remembered. Web platforms for property, hospitality, edtech and AI.",
   url: "https://fandy.dev",
@@ -105,15 +105,15 @@ export const profile: Profile = {
   eyebrow: "A Different Kind of Frontend Developer",
   headline: ["Build Boldly.", "Be Remembered."],
   pitch:
-    "Frontend developer from Denpasar, Bali — turning ideas into fast, felt web experiences.\nFive years of shipping: property, hospitality, edtech, and AI.",
+    "Frontend developer from Denpasar, Bali, turning ideas into fast, felt web experiences.\nFive years of shipping: property, hospitality, edtech, and AI.",
   city: "Denpasar",
   country: "Indonesia",
   coordinates: "-8.6500° S, 115.2167° E",
   timeZone: "Asia/Makassar",
   bio: [
-    "I'm a frontend developer based in Denpasar, Bali. For five years I've turned Figma files, loose briefs, and half-formed ideas into products that real people rely on — property investment platforms, a beach club in Seminyak, e-learning tools, and an AI writing app.",
-    "I care about the unglamorous parts: honest loading times, state that behaves, keyboard paths that work, and the tiny detail nobody notices until it's missing. Good work should feel inevitable — like the page could not have been arranged any other way.",
-    "When I'm not shipping, I'm usually outdoors — camping around the island, chasing coastline, and taking the long road home. That same instinct drives how I build: go somewhere worth arriving at, and leave the trail cleaner than you found it.",
+    "I'm a frontend developer based in Denpasar, Bali. For five years I've turned Figma files, loose briefs, and half-formed ideas into products that real people rely on: property investment platforms, a beach club in Seminyak, e-learning tools, and an AI writing app.",
+    "I care about the unglamorous parts: honest loading times, state that behaves, keyboard paths that work, and the tiny detail nobody notices until it's missing. Good work should feel inevitable, like the page could not have been arranged any other way.",
+    "When I'm not shipping, I'm usually outdoors: camping around the island, chasing coastline, and taking the long road home. That same instinct drives how I build: go somewhere worth arriving at, and leave the trail cleaner than you found it.",
   ],
   workStyle:
     "Independent, curious, and adaptable. I enjoy taking ownership of tasks, learning through hands-on work, and finding practical solutions to technical problems. I am comfortable working independently or with a team, and I use AI tools thoughtfully to improve research, development, documentation, and productivity.",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     title: "Elle Resort and Beach Club",
     category: "Company",
     context: "PT. Miravelle Sunzaryn",
-    summary: "Sun, sand, and shipping — a hospitality site for a beach club in Seminyak.",
+    summary: "Sun, sand, and shipping: a hospitality site for a beach club in Seminyak.",
     stack: ["Next.js", "Vercel"],
     url: "https://elleresortandbeachclubbali.com/",
   },
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     title: "Geonet Properties",
     category: "Company",
     context: "PT. Miravelle Sunzaryn",
-    summary: "Property investment platform — listings, yields and trust in one fast site.",
+    summary: "Property investment platform: listings, yields and trust in one fast site.",
     stack: ["Turborepo", "Next.js", "Vercel"],
     url: "https://geonet.properties/",
   },
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     title: "Admin Portal",
     category: "Company",
     context: "PT. Miravelle Sunzaryn",
-    summary: "Internal admin portal for the Geonet ecosystem — content and operations in one place.",
+    summary: "Internal admin portal for the Geonet ecosystem, with content and operations in one place.",
     stack: ["Next.js", "Vercel"],
     url: "https://ap.geonet.properties/",
   },
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     title: "Investor Portal",
     category: "Company",
     context: "PT. Miravelle Sunzaryn",
-    summary: "Investor-facing portal — portfolios, documents and status at a glance.",
+    summary: "Investor-facing portal: portfolios, documents and status at a glance.",
     stack: ["Next.js", "Vercel"],
     url: "https://investor.geonet.properties/",
   },
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     title: "BTW Edutech",
     category: "Company",
     context: "PT Bina Taruna Wiratama",
-    summary: "E-learning platform — admin tooling for teachers to build and manage student questions.",
+    summary: "E-learning platform with admin tooling for teachers to build and manage student questions.",
     stack: ["Vite", "React", "TypeScript"],
     url: "https://btwedutech.com/",
   },
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     title: "Ases AI",
     category: "Company",
     context: "PT Bina Taruna Wiratama",
-    summary: "AI writing platform — contributed frontend for the editor and generation flows.",
+    summary: "AI writing platform, contributed frontend for the editor and generation flows.",
     stack: ["Vite", "React", "TypeScript"],
     url: "https://asesai.com/",
   },
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     title: "Wimah Photobooth",
     category: "Freelance",
     context: "Freelance",
-    summary: "Photobooth service site — say cheese.",
+    summary: "Photobooth service site. Say cheese.",
     stack: ["Next.js", "Vercel"],
     url: "https://wimahphotobooth.id/",
   },
@@ -231,7 +231,7 @@ export const projects: Project[] = [
     title: "Wimah Ngundang",
     category: "Freelance",
     context: "Freelance",
-    summary: "Digital wedding invitation — built and shipped with Next.js.",
+    summary: "Digital wedding invitation, built and shipped with Next.js.",
     stack: ["Next.js", "Vercel"],
     url: "https://wimah-ngundang.vercel.app/",
   },
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     title: "Towing Fa",
     category: "Freelance",
     context: "Freelance",
-    summary: "Towing service site — fast dispatch, faster builds.",
+    summary: "Towing service site: fast dispatch, faster builds.",
     stack: ["Next.js", "Vercel"],
     url: "https://towingfa.com/",
   },
@@ -291,7 +291,7 @@ export const projects: Project[] = [
     title: "TKaku",
     category: "Personal",
     context: "Personal project",
-    summary: "Math learning package for students — Astro on Netlify.",
+    summary: "Math learning package for students, running Astro on Netlify.",
     stack: ["Astro", "Netlify"],
     url: "https://tkaku-annisa.netlify.app/",
   },
@@ -299,7 +299,7 @@ export const projects: Project[] = [
 
 export const experience: Experience[] = [
   {
-    period: "Oct 2022 — Jun 2026",
+    period: "Oct 2022 – Jun 2026",
     role: "Fullstack Developer",
     company: "PT. Miravelle Sunzaryn",
     location: "Bali, Indonesia",
@@ -310,7 +310,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "Sep 2024 — Jan 2025",
+    period: "Sep 2024 – Jan 2025",
     role: "Frontend Developer (Internship)",
     company: "PT Bina Taruna Wiratama",
     location: "Bali, Indonesia",
@@ -321,12 +321,12 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "Apr 2021 — Aug 2022",
+    period: "Apr 2021 – Aug 2022",
     role: "Frontend Developer",
     company: "PT Semua Aplikasi Indonesia",
     location: "Bali, Indonesia",
     bullets: [
-      "Where the coding journey started — first hands-on with Next.js, React Native, Tailwind CSS, and ArangoDB.",
+      "Where the coding journey started: first hands-on with Next.js, React Native, Tailwind CSS, and ArangoDB.",
       "Helped develop landing pages and backend database work using Next.js and ArangoDB.",
       "Built responsive web and mobile views across early client projects.",
     ],
@@ -402,7 +402,7 @@ export const certifications: Certification[] = [];
 
 export const contact: Contact = {
   email: "fandyglitch3@gmail.com",
-  availability: "Open to work & freelance — usually replies within a day.",
+  availability: "Open to work & freelance, usually replies within a day.",
   socials: [
     {
       label: "Email",
