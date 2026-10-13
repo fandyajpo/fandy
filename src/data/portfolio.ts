@@ -119,10 +119,9 @@ export const profile: Profile = {
     "Independent, curious, and adaptable. I enjoy taking ownership of tasks, learning through hands-on work, and finding practical solutions to technical problems. I am comfortable working independently or with a team, and I use AI tools thoughtfully to improve research, development, documentation, and productivity.",
   quickFacts: [
     { label: "Based in", value: "Denpasar, Bali, Indonesia" },
-    { label: "Field", value: "Frontend engineering & design systems" },
+    { label: "Field", value: "Frontend engineering, design systems & Backend engineering" },
     { label: "Experience", value: "5+ years shipping production web" },
-    { label: "Languages", value: "Indonesian (native), English (professional)" },
-    { label: "Status", value: "Open to work & freelance" },
+    { label: "Languages", value: "Indonesian (native), English" },
   ],
   stats: [
     { value: 5, suffix: "+", label: "Years of experience" },

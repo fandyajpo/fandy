@@ -13,7 +13,7 @@ import NightCity from "./scenes/NightCity";
 const sceneComponents = [Alpine, Coastal, Desert, NightCity];
 
 export default function Hero() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const reduced = useReducedMotion();
   const parallaxRef = useRef<HTMLDivElement>(null);
   const active = scenes[index];
