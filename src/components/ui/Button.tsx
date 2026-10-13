@@ -65,6 +65,7 @@ export default function Button({
 interface SecondaryLinkProps {
   children: ReactNode;
   href?: string;
+  download?: boolean;
   onClick?: () => void;
   className?: string;
 }
@@ -72,6 +73,7 @@ interface SecondaryLinkProps {
 export function SecondaryLink({
   children,
   href,
+  download,
   onClick,
   className = "",
 }: SecondaryLinkProps) {
@@ -92,7 +94,13 @@ export function SecondaryLink({
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} data-cursor className={cls}>
+      <a
+        href={href}
+        download={download || undefined}
+        onClick={onClick}
+        data-cursor
+        className={cls}
+      >
         {inner}
       </a>
     );

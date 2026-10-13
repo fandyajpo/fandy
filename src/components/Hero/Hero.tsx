@@ -108,7 +108,7 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
           <Button href="#work">See my work</Button>
-          <SecondaryLink onClick={() => window.print()}>
+          <SecondaryLink href="/cv.pdf" download>
             Download resume
           </SecondaryLink>
         </div>
