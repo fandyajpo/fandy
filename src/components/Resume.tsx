@@ -63,7 +63,7 @@ export default function Resume() {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {education.map((item) => (
               <Reveal key={item.school}>
-                <article className="border border-cream/25 bg-garden-deep/40 p-6 md:p-8">
+                <article className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
                   <p className="label text-cream/50">{item.period}</p>
                   <h4 className="display mt-3 text-2xl text-cream">
                     {item.school}

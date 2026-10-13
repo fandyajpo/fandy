@@ -4,6 +4,20 @@ export default function Coastal({ className = "" }: { className?: string }) {
     { x: 1452, y: 838, s: 0.82 },
   ];
 
+  // long wavy line starting at x=-320, period 160 (seamless with -320px drift)
+  function wavePath(y: number) {
+    let d = `M-320,${y} q40,-16 80,0`;
+    for (let x = -240; x < 2000; x += 80) d += " t80,0";
+    return d;
+  }
+
+  const waves = [
+    { y: 592, w: 5, o: 0.55, cls: "wave", bob: "wave-bob", delay: "0s" },
+    { y: 640, w: 4, o: 0.4, cls: "wave wave-fast", bob: "wave-bob", delay: "-1.6s" },
+    { y: 698, w: 4, o: 0.3, cls: "wave wave-slow", bob: "wave-bob", delay: "-3.2s" },
+    { y: 762, w: 3, o: 0.22, cls: "wave", bob: "wave-bob", delay: "-2.2s" },
+  ];
+
   return (
     <svg
       className={`h-full w-full ${className}`}
@@ -19,12 +33,12 @@ export default function Coastal({ className = "" }: { className?: string }) {
           <stop offset="100%" stopColor="#FBEBD0" />
         </linearGradient>
         <linearGradient id="coastal-sea" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#7E8B2C" />
-          <stop offset="100%" stopColor="#241A0A" />
+          <stop offset="0%" stopColor="#4FB9A6" />
+          <stop offset="100%" stopColor="#061E22" />
         </linearGradient>
         <linearGradient id="coastal-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" stopOpacity="0" />
-          <stop offset="100%" stopColor="#241A0A" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="#061E22" stopOpacity="0" />
+          <stop offset="100%" stopColor="#061E22" stopOpacity="0.95" />
         </linearGradient>
         <pattern
           id="coastal-ht"
@@ -79,6 +93,22 @@ export default function Coastal({ className = "" }: { className?: string }) {
         <path d="M1180,704 h320" />
       </g>
 
+      {/* rolling waves */}
+      {waves.map((wave) => (
+        <g key={wave.y} className={wave.bob} style={{ animationDelay: wave.delay }}>
+          <path
+            className={wave.cls}
+            d={wavePath(wave.y)}
+            stroke="#FBEBD0"
+            strokeWidth={wave.w}
+            fill="none"
+            strokeLinecap="round"
+            opacity={wave.o}
+            style={{ animationDelay: wave.delay }}
+          />
+        </g>
+      ))}
+
       {/* sand */}
       <path
         d="M0,690 C300,650 560,742 820,900 L0,900 Z"
@@ -118,21 +148,21 @@ export default function Coastal({ className = "" }: { className?: string }) {
             fill="none"
             strokeLinecap="round"
           />
-          <g stroke="#3D5210" strokeWidth="16" fill="none" strokeLinecap="round">
+          <g stroke="#0F4F4A" strokeWidth="16" fill="none" strokeLinecap="round">
             <path d="M18,-268 C-46,-306 -110,-300 -150,-262" />
             <path d="M18,-268 C-24,-330 -74,-360 -128,-368" />
             <path d="M18,-268 C44,-338 96,-364 152,-362" />
             <path d="M18,-268 C64,-306 128,-312 172,-278" />
             <path d="M18,-268 C10,-332 14,-382 34,-424" />
           </g>
-          <ellipse cx="-6" cy="-4" rx="52" ry="16" fill="#3D5210" />
+          <ellipse cx="-6" cy="-4" rx="52" ry="16" fill="#0F4F4A" />
         </g>
       ))}
 
       {/* foreground dune */}
       <path
         d="M1040,900 C1180,818 1400,806 1600,844 L1600,900 Z"
-        fill="#5C7A1B"
+        fill="#1C7A6E"
       />
       <path
         d="M1040,900 C1180,818 1400,806 1600,844"

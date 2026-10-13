@@ -11,17 +11,17 @@ export default function Alpine({ className = "" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="alpine-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" />
-          <stop offset="45%" stopColor="#414A19" />
-          <stop offset="100%" stopColor="#7E8B2C" />
+          <stop offset="0%" stopColor="#061E22" />
+          <stop offset="45%" stopColor="#0C3A40" />
+          <stop offset="100%" stopColor="#4FB9A6" />
         </linearGradient>
         <linearGradient id="alpine-lake" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#5F7A2E" />
-          <stop offset="100%" stopColor="#414A19" />
+          <stop offset="0%" stopColor="#2E9B8A" />
+          <stop offset="100%" stopColor="#0C3A40" />
         </linearGradient>
         <linearGradient id="alpine-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" stopOpacity="0" />
-          <stop offset="100%" stopColor="#241A0A" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="#061E22" stopOpacity="0" />
+          <stop offset="100%" stopColor="#061E22" stopOpacity="0.95" />
         </linearGradient>
         <pattern
           id="alpine-ht"
@@ -73,31 +73,31 @@ export default function Alpine({ className = "" }: { className?: string }) {
       {/* distant range */}
       <polygon
         points="0,760 210,470 370,610 520,420 700,760"
-        fill="#241A0A"
+        fill="#061E22"
         opacity="0.85"
       />
       <polygon
         points="1040,760 1240,520 1390,640 1560,470 1600,520 1600,760"
-        fill="#241A0A"
+        fill="#061E22"
         opacity="0.75"
       />
 
       {/* main peaks */}
       <g>
-        <polygon points="720,200 300,780 660,780" fill="#241A0A" />
+        <polygon points="720,200 300,780 660,780" fill="#061E22" />
         <polygon points="720,200 1140,780 790,780" fill="#D2552B" />
         <polygon points="720,200 960,500 790,780 760,430" fill="#F2A66B" opacity="0.85" />
         <polygon points="720,200 640,330 700,356 745,318 790,362 820,330" fill="#FBEBD0" />
         <polygon points="720,200 1140,780 790,780" fill="url(#alpine-ht)" opacity="0.22" />
       </g>
       <g>
-        <polygon points="1310,330 1010,780 1270,780" fill="#241A0A" />
+        <polygon points="1310,330 1010,780 1270,780" fill="#061E22" />
         <polygon points="1310,330 1600,780 1360,780" fill="#D2552B" />
         <polygon points="1310,330 1460,530 1360,780 1335,470" fill="#F2A66B" opacity="0.8" />
         <polygon points="1310,330 1264,420 1300,438 1332,412 1364,444 1384,424" fill="#FBEBD0" />
       </g>
       <g>
-        <polygon points="420,470 190,780 470,780" fill="#241A0A" opacity="0.9" />
+        <polygon points="420,470 190,780 470,780" fill="#061E22" opacity="0.9" />
         <polygon points="420,470 640,780 460,780" fill="#8C3416" />
         <polygon points="420,470 380,530 410,545 442,522 470,548" fill="#FBEBD0" opacity="0.9" />
       </g>
@@ -105,7 +105,7 @@ export default function Alpine({ className = "" }: { className?: string }) {
       {/* treeline */}
       <path
         d="M0,700 C260,660 520,720 780,690 C1040,660 1320,710 1600,680 L1600,800 L0,800 Z"
-        fill="#3D5210"
+        fill="#0F4F4A"
       />
 
       {/* lake */}
@@ -113,9 +113,9 @@ export default function Alpine({ className = "" }: { className?: string }) {
         d="M880,782 C1060,744 1320,754 1600,792 L1600,900 L740,900 C790,856 830,812 880,782 Z"
         fill="url(#alpine-lake)"
       />
-      <ellipse cx="1330" cy="836" rx="96" ry="26" fill="#5C7A1B" />
-      <ellipse cx="1322" cy="806" rx="30" ry="34" fill="#3D5210" />
-      <ellipse cx="1364" cy="812" rx="20" ry="24" fill="#3D5210" />
+      <ellipse cx="1330" cy="836" rx="96" ry="26" fill="#1C7A6E" />
+      <ellipse cx="1322" cy="806" rx="30" ry="34" fill="#0F4F4A" />
+      <ellipse cx="1364" cy="812" rx="20" ry="24" fill="#0F4F4A" />
       <g stroke="#FBEBD0" strokeLinecap="round" fill="none">
         <path className="glint" d="M1010,826 h120" strokeWidth="5" opacity="0.8" />
         <path className="glint-2" d="M1140,856 h170" strokeWidth="6" opacity="0.7" />
@@ -126,18 +126,18 @@ export default function Alpine({ className = "" }: { className?: string }) {
       {/* green slope */}
       <path
         d="M0,648 C240,624 520,712 720,900 L0,900 Z"
-        fill="#5C7A1B"
+        fill="#1C7A6E"
       />
       <path
         d="M0,742 C210,722 430,796 540,900 L0,900 Z"
-        fill="#7C9220"
+        fill="#2FA091"
       />
 
       {/* house */}
       <g>
         <rect x="242" y="686" width="76" height="58" fill="#FBEBD0" />
         <polygon points="228,688 280,646 332,688" fill="#D2552B" />
-        <rect x="268" y="712" width="22" height="32" fill="#241A0A" />
+        <rect x="268" y="712" width="22" height="32" fill="#061E22" />
         <rect x="250" y="698" width="14" height="14" fill="#F2A66B" />
         <rect
           x="242"
@@ -150,7 +150,7 @@ export default function Alpine({ className = "" }: { className?: string }) {
       </g>
 
       {/* cypress trees */}
-      <g fill="#3D5210">
+      <g fill="#0F4F4A">
         <path d="M132,760 C112,724 116,662 136,640 C156,662 158,726 140,760 Z" />
         <path d="M394,780 C374,742 378,678 398,656 C418,678 420,744 402,780 Z" />
         <path d="M452,792 C436,762 440,712 456,694 C472,712 474,764 460,792 Z" />
@@ -168,7 +168,7 @@ export default function Alpine({ className = "" }: { className?: string }) {
       {/* foreground flowers */}
       <g filter="url(#alpine-blur)" opacity="0.85">
         <circle cx="70" cy="852" r="24" fill="#F2A66B" />
-        <circle cx="148" cy="874" r="20" fill="#A9C23A" />
+        <circle cx="148" cy="874" r="20" fill="#4FC3B0" />
         <circle cx="228" cy="856" r="17" fill="#D2552B" />
         <circle cx="316" cy="880" r="22" fill="#F2A66B" />
         <circle cx="430" cy="866" r="15" fill="#FBEBD0" />

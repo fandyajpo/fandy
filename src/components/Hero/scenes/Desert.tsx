@@ -14,14 +14,14 @@ export default function Desert({ className = "" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="desert-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#5A2810" />
+          <stop offset="0%" stopColor="#2B2440" />
           <stop offset="38%" stopColor="#A8531F" />
           <stop offset="74%" stopColor="#D2552B" />
           <stop offset="100%" stopColor="#F2A66B" />
         </linearGradient>
         <linearGradient id="desert-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" stopOpacity="0" />
-          <stop offset="100%" stopColor="#241A0A" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="#061E22" stopOpacity="0" />
+          <stop offset="100%" stopColor="#061E22" stopOpacity="0.95" />
         </linearGradient>
         <pattern
           id="desert-ht"
@@ -52,7 +52,7 @@ export default function Desert({ className = "" }: { className?: string }) {
       </g>
 
       {/* birds */}
-      <g stroke="#241A0A" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.7">
+      <g stroke="#061E22" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.7">
         <path d="M540,300 q16,-14 32,0 q16,-14 32,0" />
         <path d="M640,344 q12,-11 24,0 q12,-11 24,0" />
       </g>
@@ -90,7 +90,7 @@ export default function Desert({ className = "" }: { className?: string }) {
         <g
           key={`${c.x}-${c.y}`}
           transform={`translate(${c.x} ${c.y}) scale(${c.s})`}
-          fill="#3D5210"
+          fill="#0F4F4A"
         >
           <path d="M-20,0 h40 v-150 a20,20 0 0 0 -40,0 Z" />
           <path d="M-64,-58 h26 v-16 a13,13 0 0 1 26,0 v52 a16,16 0 0 1 -16,16 h-36 Z" />

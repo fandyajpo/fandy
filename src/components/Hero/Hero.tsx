@@ -48,8 +48,8 @@ export default function Hero() {
     const onMove = (event: PointerEvent) => {
       const x = (event.clientX / window.innerWidth - 0.5) * 2;
       const y = (event.clientY / window.innerHeight - 0.5) * 2;
-      node.style.setProperty("--px", `${x * -20}px`);
-      node.style.setProperty("--py", `${y * -12}px`);
+      node.style.setProperty("--px", `${x * -30}px`);
+      node.style.setProperty("--py", `${y * -18}px`);
     };
 
     window.addEventListener("pointermove", onMove, { passive: true });
@@ -115,7 +115,7 @@ export default function Hero() {
       </div>
 
       {/* bottom bar */}
-      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-cream/20 bg-garden-deep/40 px-4 py-4 backdrop-blur-sm md:px-8 md:py-5">
+      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-cream/20 bg-ocean-deep/40 px-4 py-4 backdrop-blur-sm md:px-8 md:py-5">
         <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
           <div className="flex min-w-0 items-center gap-3">
             <MapPin className="size-4 shrink-0 text-peach" />

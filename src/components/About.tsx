@@ -36,8 +36,8 @@ function Avatar() {
           <path d="M0,500 V200 A200,200 0 0 1 400,200 V500 Z" />
         </clipPath>
         <linearGradient id="about-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" />
-          <stop offset="100%" stopColor="#7E8B2C" />
+          <stop offset="0%" stopColor="#061E22" />
+          <stop offset="100%" stopColor="#4FB9A6" />
         </linearGradient>
         <pattern id="about-ht" width="8" height="8" patternUnits="userSpaceOnUse">
           <circle cx="2" cy="2" r="1.3" fill="#FBEBD0" opacity="0.5" />
@@ -54,24 +54,24 @@ function Avatar() {
         <polygon points="40,340 150,150 260,340" fill="#D2552B" />
         <polygon points="150,150 260,340 176,340" fill="#8C3416" />
         <polygon points="150,150 124,196 146,208 168,190 190,214" fill="#FBEBD0" />
-        <polygon points="180,340 270,206 360,340" fill="#241A0A" />
-        <polygon points="270,206 360,340 296,340" fill="#5F7A28" />
+        <polygon points="180,340 270,206 360,340" fill="#061E22" />
+        <polygon points="270,206 360,340 296,340" fill="#35A896" />
         <polygon points="270,206 252,240 268,248 286,234 302,252" fill="#FBEBD0" />
 
         <path
           d="M0,330 C90,304 180,340 250,380 C310,414 360,430 400,428 V500 H0 Z"
-          fill="#5C7A1B"
+          fill="#1C7A6E"
         />
         <path
           d="M0,392 C100,372 210,414 290,462 L320,500 H0 Z"
-          fill="#7C9220"
+          fill="#2FA091"
         />
 
         {/* figure from behind */}
         <g fill="#17130A">
           <circle cx="196" cy="352" r="26" />
           <path d="M164,478 C164,414 176,378 196,378 C216,378 228,414 228,478 Z" />
-          <rect x="172" y="386" width="48" height="58" rx="14" fill="#241A0A" />
+          <rect x="172" y="386" width="48" height="58" rx="14" fill="#061E22" />
           <rect x="172" y="386" width="48" height="16" rx="8" fill="#D2552B" />
         </g>
         <path
@@ -134,7 +134,7 @@ export default function About() {
             </div>
 
             <Reveal delay={0.1} className="mt-12">
-              <div className="border border-cream/25 bg-garden-deep/40 p-6 md:p-8">
+              <div className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
                 <p className="label text-peach">Work style</p>
                 <p className="mt-5 text-base leading-relaxed text-cream/85 md:text-lg">
                   {profile.workStyle}
@@ -148,7 +148,7 @@ export default function About() {
               <Avatar />
             </div>
 
-            <div className="border border-cream/25 bg-garden-deep/40 p-6 md:p-8">
+            <div className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
               <p className="label text-peach">Quick facts</p>
               <dl className="mt-5 space-y-4">
                 {profile.quickFacts.map((fact) => (

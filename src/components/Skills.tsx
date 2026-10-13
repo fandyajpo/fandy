@@ -11,7 +11,7 @@ export default function Skills() {
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         {skillGroups.map((group, index) => (
           <Reveal key={group.title} delay={index * 0.05}>
-            <div className="border border-cream/25 bg-garden-deep/40 p-6 md:p-8">
+            <div className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
               <h4 className="display text-2xl text-cream">{group.title}</h4>
               <ul className="mt-5 flex flex-wrap gap-2.5">
                 {group.skills.map((skill) => (

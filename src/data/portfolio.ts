@@ -133,7 +133,7 @@ export const profile: Profile = {
 
 export const scenes: Scene[] = [
   { id: "alpine", num: "01", name: "Alpine", chapter: "Origin", accent: "#F2A66B" },
-  { id: "coastal", num: "02", name: "Coastal", chapter: "Craft", accent: "#A9C23A" },
+  { id: "coastal", num: "02", name: "Coastal", chapter: "Craft", accent: "#4FC3B0" },
   { id: "desert", num: "03", name: "Desert", chapter: "Projects", accent: "#D2552B" },
   { id: "night-city", num: "04", name: "Night City", chapter: "Next", accent: "#FBEBD0" },
 ];
@@ -344,6 +344,7 @@ export const education: Education[] = [
   {
     period: "2018 – 2021",
     school: "SMK Negeri 3 Mataram",
+    degree: "Industrial Electronics Engineering",
   },
   {
     period: "2015 – 2018",

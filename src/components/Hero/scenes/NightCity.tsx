@@ -40,9 +40,9 @@ export default function NightCity({ className = "" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#181006" />
-          <stop offset="55%" stopColor="#241A0A" />
-          <stop offset="100%" stopColor="#414A19" />
+          <stop offset="0%" stopColor="#04161C" />
+          <stop offset="55%" stopColor="#061E22" />
+          <stop offset="100%" stopColor="#0C3A40" />
         </linearGradient>
         <pattern
           id="night-win"
@@ -50,7 +50,7 @@ export default function NightCity({ className = "" }: { className?: string }) {
           height="44"
           patternUnits="userSpaceOnUse"
         >
-          <rect x="6" y="8" width="10" height="13" fill="#A9C23A" opacity="0.85" />
+          <rect x="6" y="8" width="10" height="13" fill="#4FC3B0" opacity="0.85" />
           <rect x="20" y="24" width="10" height="13" fill="#F2A66B" opacity="0.6" />
         </pattern>
         <pattern
@@ -62,8 +62,8 @@ export default function NightCity({ className = "" }: { className?: string }) {
           <circle cx="2" cy="2" r="1.2" fill="#FBEBD0" opacity="0.5" />
         </pattern>
         <linearGradient id="night-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#241A0A" stopOpacity="0" />
-          <stop offset="100%" stopColor="#241A0A" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="#061E22" stopOpacity="0" />
+          <stop offset="100%" stopColor="#061E22" stopOpacity="0.95" />
         </linearGradient>
         <linearGradient id="night-street" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#F2A66B" stopOpacity="0" />
@@ -96,16 +96,16 @@ export default function NightCity({ className = "" }: { className?: string }) {
       <circle cx="1240" cy="180" r="66" fill="url(#night-ht)" opacity="0.2" />
 
       {/* night clouds */}
-      <g fill="#414A19" opacity="0.55" className="cloud-b">
+      <g fill="#0C3A40" opacity="0.55" className="cloud-b">
         <rect x="200" y="250" width="330" height="26" rx="13" />
         <rect x="300" y="292" width="190" height="18" rx="9" opacity="0.7" />
       </g>
-      <g fill="#414A19" opacity="0.45" className="cloud-a" style={{ animationDelay: "7s" }}>
+      <g fill="#0C3A40" opacity="0.45" className="cloud-a" style={{ animationDelay: "7s" }}>
         <rect x="900" y="330" width="380" height="24" rx="12" />
       </g>
 
       {/* far skyline */}
-      <g fill="#241A0A">
+      <g fill="#061E22">
         <rect x="0" y="560" width="150" height="340" />
         <rect x="170" y="620" width="120" height="280" />
         <rect x="310" y="520" width="140" height="380" />
@@ -145,7 +145,7 @@ export default function NightCity({ className = "" }: { className?: string }) {
       </g>
       <g>
         <rect x="1268" y="420" width="12" height="100" fill="#17130A" />
-        <circle className="twinkle" cx="1274" cy="414" r="7" fill="#A9C23A" style={{ animationDelay: "1.6s" }} />
+        <circle className="twinkle" cx="1274" cy="414" r="7" fill="#4FC3B0" style={{ animationDelay: "1.6s" }} />
       </g>
 
       {/* halftone shimmer on lit faces */}

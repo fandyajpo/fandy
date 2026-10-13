@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-garden: #414a19;
-  --color-garden-deep: #241a0a;
+  --color-ocean: #0c3a40;
+  --color-ocean-deep: #061e22;
   --color-cream: #fbebd0;
   --color-peach: #f2a66b;
   --color-rust: #d2552b;
-  --color-green: #5c7a1b;
-  --color-lime: #a9c23a;
+  --color-green: #1c7a6e;
+  --color-lime: #4fc3b0;
   --color-ink: #17130a;
 
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -16,13 +16,13 @@
 }
 
 :root {
-  --garden: #414a19;
-  --garden-deep: #241a0a;
+  --ocean: #0c3a40;
+  --ocean-deep: #061e22;
   --cream: #fbebd0;
   --peach: #f2a66b;
   --rust: #d2552b;
-  --green: #5c7a1b;
-  --lime: #a9c23a;
+  --green: #1c7a6e;
+  --lime: #4fc3b0;
   --ink: #17130a;
   --frame: 3px;
 }
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background: var(--garden);
+  background: var(--ocean);
   color: var(--cream);
   overflow-x: hidden;
 }
@@ -210,13 +210,46 @@ section[id] {
   animation: twinkle 4s ease-in-out infinite;
 }
 
+/* ---- Beach waves ---- */
+@keyframes wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-320px);
+  }
+}
+
+@keyframes wave-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.wave {
+  animation: wave-drift 9s linear infinite;
+}
+.wave-slow {
+  animation-duration: 15s;
+}
+.wave-fast {
+  animation-duration: 6s;
+}
+.wave-bob {
+  animation: wave-bob 5s ease-in-out infinite;
+}
+
 /* ---- Hero helpers ---- */
 .hero-bottom-fade {
   background: linear-gradient(
     to top,
-    rgba(36, 26, 10, 0.95) 0%,
-    rgba(36, 26, 10, 0.6) 34%,
-    rgba(36, 26, 10, 0) 72%
+    rgba(6, 30, 34, 0.95) 0%,
+    rgba(6, 30, 34, 0.6) 34%,
+    rgba(6, 30, 34, 0) 72%
   );
 }
 

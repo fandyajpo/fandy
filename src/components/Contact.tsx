@@ -214,7 +214,7 @@ export default function Contact() {
 
           {/* details */}
           <Reveal delay={0.12} className="space-y-8">
-            <div className="border border-cream/25 bg-garden-deep/40 p-6 md:p-8">
+            <div className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
               <div className="flex items-center justify-between gap-4">
                 <p className="label text-peach">Local time</p>
                 <p className="label flex items-center gap-2 text-cream/70">

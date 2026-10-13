@@ -37,7 +37,7 @@ export default function MenuOverlay({ open, onClose }: MenuOverlayProps) {
       aria-modal="true"
       aria-label="Site menu"
       aria-hidden={!open}
-      className={`fixed inset-0 z-50 bg-garden transition-all duration-500 ${
+      className={`fixed inset-0 z-50 bg-ocean transition-all duration-500 ${
         open
           ? "visible opacity-100"
           : "invisible opacity-0"

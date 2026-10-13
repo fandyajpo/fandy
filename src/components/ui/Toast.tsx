@@ -42,7 +42,7 @@ export default function Toast() {
       {items.map((item) => (
         <div
           key={item.id}
-          className="toast-item flex items-center gap-2 rounded-full bg-cream px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-ink shadow-[0_10px_30px_rgba(36,26,10,0.45)]"
+          className="toast-item flex items-center gap-2 rounded-full bg-cream px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-ink shadow-[0_10px_30px_rgba(6,30,34,0.45)]"
         >
           <CheckIcon className="size-4 text-rust" />
           {item.message}
