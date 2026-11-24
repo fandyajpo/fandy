@@ -93,7 +93,7 @@ export const site: SiteMeta = {
   title: "Fandy Ahmad | Frontend Developer",
   description:
     "Portfolio of Fandy Ahmad, frontend developer from Denpasar, Bali. Build Boldly. Be Remembered. Web platforms for property, hospitality, edtech and AI.",
-  url: "https://fandy.dev",
+  url: "https://fandy.vercel.app",
   locale: "en_US",
 };
 
