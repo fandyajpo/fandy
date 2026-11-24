@@ -125,7 +125,7 @@ export const profile: Profile = {
   ],
   stats: [
     { value: 5, suffix: "+", label: "Years of experience" },
-    { value: 15, suffix: "+", label: "Projects shipped" },
+    { value: 16, suffix: "+", label: "Projects shipped" },
     { value: 8, suffix: "+", label: "Clients & teams" },
   ],
 };
@@ -294,6 +294,16 @@ export const projects: Project[] = [
     summary: "Math learning package for students, running Astro on Netlify.",
     stack: ["Astro", "Netlify"],
     url: "https://tkaku-annisa.netlify.app/",
+  },
+  {
+    id: "sendust",
+    num: "16",
+    title: "Sendust",
+    category: "Personal",
+    context: "Open source library",
+    summary: "Email infrastructure in Rust: a native SMTP engine with a typed SDK for Node, Bun, and Deno.",
+    stack: ["Rust", "Node-API", "TypeScript"],
+    url: "https://sendust-docs.vercel.app/",
   },
 ];
 
