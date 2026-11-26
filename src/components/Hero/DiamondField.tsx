@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 const IVORY = "236, 230, 215";
 const MINT = "125, 233, 195";
 const LIME = "216, 255, 107";
+const BLUE = "74, 158, 255";
 const RING = 0.72;
 
 interface Vec3 {
@@ -179,6 +180,25 @@ export default function DiamondField() {
         26,
         (shard.size * focal) / Math.max(shard.z, 4),
       );
+
+      // a wide blue ambient halo behind the hero diamond
+      if (shard.size > 0.9) {
+        const aura = context.createRadialGradient(
+          midX,
+          midY,
+          0,
+          midX,
+          midY,
+          radius * 3.4,
+        );
+        aura.addColorStop(0, `rgba(${BLUE}, ${(0.2 * fade).toFixed(3)})`);
+        aura.addColorStop(0.55, `rgba(${BLUE}, ${(0.07 * fade).toFixed(3)})`);
+        aura.addColorStop(1, `rgba(${BLUE}, 0)`);
+        context.fillStyle = aura;
+        context.beginPath();
+        context.arc(midX, midY, radius * 3.4, 0, Math.PI * 2);
+        context.fill();
+      }
 
       if (shard.accent && shard.size > 0.45) {
         const glow = context.createRadialGradient(
