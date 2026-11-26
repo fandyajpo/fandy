@@ -21,8 +21,8 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   const cls = [
-    "group label inline-flex items-center gap-3 border border-cream bg-cream px-6 py-3.5",
-    "text-ink transition-colors duration-300 hover:bg-transparent hover:text-cream",
+    "group label springy inline-flex items-center gap-3 border border-cream bg-cream px-6 py-3.5",
+    "text-ink hover:bg-transparent hover:text-cream",
     className,
   ].join(" ");
 

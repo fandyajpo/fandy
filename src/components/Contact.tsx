@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import { toast } from "@/components/ui/Toast";
+import Veil from "@/components/ui/Veil";
 import {
   ArrowUpRight,
   CopyIcon,
@@ -104,14 +105,16 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2
-            className="display mt-6 text-cream"
-            style={{ fontSize: "clamp(46px, 9vw, 150px)" }}
-          >
-            Let&apos;s go somewhere
-            <br />
-            together.
-          </h2>
+          <Veil>
+            <h2
+              className="display mt-6 text-cream"
+              style={{ fontSize: "clamp(46px, 9vw, 150px)" }}
+            >
+              Let&apos;s go somewhere
+              <br />
+              together.
+            </h2>
+          </Veil>
         </Reveal>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">

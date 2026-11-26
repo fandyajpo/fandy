@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import Reveal from "@/components/ui/Reveal";
+import Veil from "@/components/ui/Veil";
 import { projects } from "@/data/portfolio";
 import type { Category } from "@/data/portfolio";
 
@@ -26,14 +27,16 @@ export default function Work() {
 
         <Reveal delay={0.06}>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
-            <h2
-              className="display text-cream"
-              style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
-            >
-              Things I&apos;ve
-              <br />
-              shipped.
-            </h2>
+            <Veil>
+              <h2
+                className="display text-cream"
+                style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
+              >
+                Things I&apos;ve
+                <br />
+                shipped.
+              </h2>
+            </Veil>
             <p className="label max-w-[300px] text-cream/55">
               {projects.length} live projects. Click any card to visit the
               site.
@@ -54,7 +57,7 @@ export default function Work() {
                 onClick={() => setFilter(item)}
                 aria-pressed={filter === item}
                 data-cursor
-                className={`label px-4 py-2.5 transition-all duration-300 ${
+                className={`label springy px-4 py-2.5 ${
                   filter === item
                     ? "bg-cream text-ink"
                     : "border border-cream/35 text-cream/75 hover:border-cream hover:text-cream"

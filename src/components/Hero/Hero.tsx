@@ -81,6 +81,41 @@ export default function Hero() {
     };
   }, [reduced]);
 
+  // Scroll drives the hero's exit: the copy lifts, shrinks and fades while the
+  // backdrop drifts, so the headline disappears as the next section arrives.
+  useEffect(() => {
+    if (reduced) return;
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    let frame = 0;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const viewport = window.innerHeight || 1;
+      const page = Math.min(1, Math.max(0, window.scrollY / viewport));
+      stage.style.setProperty("--page", page.toFixed(4));
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+      stage.style.removeProperty("--page");
+    };
+  }, [reduced]);
+
   return (
     <section
       id="top"
@@ -105,7 +140,7 @@ export default function Hero() {
         <div className="hero-hatch absolute inset-0" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-20">
+      <div className="hero-content relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-20">
         <div className="flex items-center gap-3">
           <span className="label text-peach">01</span>
           <span className="h-px w-10 bg-cream/25" />

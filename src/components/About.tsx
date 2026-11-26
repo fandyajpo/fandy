@@ -1,6 +1,8 @@
 "use client";
 
 import Reveal from "@/components/ui/Reveal";
+import Drift from "@/components/ui/Drift";
+import Veil from "@/components/ui/Veil";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useInView } from "@/hooks/useInView";
 import { profile } from "@/data/portfolio";
@@ -126,12 +128,14 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2
-            className="display mt-6 text-cream"
-            style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
-          >
-            Hello, I&apos;m {profile.firstName}.
-          </h2>
+          <Veil>
+            <h2
+              className="display mt-6 text-cream"
+              style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
+            >
+              Hello, I&apos;m {profile.firstName}.
+            </h2>
+          </Veil>
         </Reveal>
 
         <div className="mt-14 grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
@@ -166,9 +170,9 @@ export default function About() {
           </div>
 
           <Reveal delay={0.12} className="space-y-8">
-            <div className="mx-auto max-w-[340px]">
+            <Drift speed={-60} className="mx-auto max-w-[340px]">
               <Facet />
-            </div>
+            </Drift>
 
             <div className="border border-cream/20 p-6 md:p-8">
               <p className="label text-peach">Quick facts</p>

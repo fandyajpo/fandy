@@ -2,6 +2,7 @@ import Reveal from "@/components/ui/Reveal";
 import Skills from "./Skills";
 import Timeline from "./Timeline";
 import Button from "@/components/ui/Button";
+import Veil from "@/components/ui/Veil";
 import { certifications, contact, education, profile } from "@/data/portfolio";
 
 export default function Resume() {
@@ -29,14 +30,16 @@ export default function Resume() {
 
           <Reveal delay={0.06}>
             <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
-              <h2
-                className="display text-cream"
-                style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
-              >
-                The route
-                <br />
-                so far.
-              </h2>
+              <Veil>
+                <h2
+                  className="display text-cream"
+                  style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
+                >
+                  The route
+                  <br />
+                  so far.
+                </h2>
+              </Veil>
 
               <div className="flex flex-col items-start gap-3">
                 <p className="label max-w-[260px] text-cream/55">

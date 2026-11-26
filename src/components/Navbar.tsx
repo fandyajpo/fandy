@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import Button from "@/components/ui/Button";
 import { MenuIcon } from "@/components/ui/Icons";
@@ -10,12 +10,45 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // A hairline that fills as the page is read, drawn without re-rendering.
+  useEffect(() => {
+    let frame = 0;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const bar = barRef.current;
+      if (!bar) return;
+      const max =
+        document.documentElement.scrollHeight - window.innerHeight || 1;
+      const value = Math.min(1, Math.max(0, window.scrollY / max));
+      bar.style.transform = `scaleX(${value.toFixed(4)})`;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -94,6 +127,10 @@ export default function Navbar() {
               <MenuIcon className="size-5" />
             </button>
           </div>
+        </div>
+
+        <div className="scroll-bar" aria-hidden="true">
+          <div ref={barRef} className="scroll-bar-fill" />
         </div>
       </header>
 

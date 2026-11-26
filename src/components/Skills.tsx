@@ -17,7 +17,7 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <li
                     key={skill}
-                    className="label border border-cream/25 px-3 py-1.5 text-cream/75 transition-colors duration-300 hover:border-cream hover:bg-cream hover:text-ink"
+                    className="label springy border border-cream/25 px-3 py-1.5 text-cream/75 hover:border-cream hover:bg-cream hover:text-ink"
                   >
                     {skill}
                   </li>
