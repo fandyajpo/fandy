@@ -5,6 +5,7 @@ import Button, { SecondaryLink } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, MapPin } from "@/components/ui/Icons";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { profile, scenes } from "@/data/portfolio";
+import WireframeSea from "./WireframeSea";
 import Alpine from "./scenes/Alpine";
 import Coastal from "./scenes/Coastal";
 import Desert from "./scenes/Desert";
@@ -16,6 +17,7 @@ export default function Hero() {
   const [index, setIndex] = useState(1);
   const reduced = useReducedMotion();
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLElement>(null);
   const active = scenes[index];
 
   const goTo = useCallback((next: number) => {
@@ -40,55 +42,111 @@ export default function Hero() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  // Pointer moves tilt the whole stage in 3D (--rx / --ry) and shift the
+  // scene layer inside it, so the hero has real depth rather than a flat pan.
   useEffect(() => {
     if (reduced) return;
-    const node = parallaxRef.current;
-    if (!node || !window.matchMedia("(pointer: fine)").matches) return;
+    const plane = parallaxRef.current;
+    const stage = stageRef.current;
+    if (!plane || !stage) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    let frame = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
+
+      plane.style.setProperty("--px", `${(currentX * -26).toFixed(2)}px`);
+      plane.style.setProperty("--py", `${(currentY * -16).toFixed(2)}px`);
+      stage.style.setProperty("--ry", `${(currentX * 1.35).toFixed(2)}deg`);
+      stage.style.setProperty("--rx", `${(currentY * -0.9).toFixed(2)}deg`);
+
+      if (
+        Math.abs(targetX - currentX) > 0.002 ||
+        Math.abs(targetY - currentY) > 0.002
+      ) {
+        frame = requestAnimationFrame(render);
+      } else {
+        frame = 0;
+      }
+    };
+
+    const kick = () => {
+      if (!frame) frame = requestAnimationFrame(render);
+    };
 
     const onMove = (event: PointerEvent) => {
-      const x = (event.clientX / window.innerWidth - 0.5) * 2;
-      const y = (event.clientY / window.innerHeight - 0.5) * 2;
-      node.style.setProperty("--px", `${x * -30}px`);
-      node.style.setProperty("--py", `${y * -18}px`);
+      targetX = (event.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (event.clientY / window.innerHeight - 0.5) * 2;
+      kick();
+    };
+
+    const onLeave = () => {
+      targetX = 0;
+      targetY = 0;
+      kick();
     };
 
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    document.addEventListener("pointerleave", onLeave);
+
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerleave", onLeave);
+      if (frame) cancelAnimationFrame(frame);
+      plane.style.removeProperty("--px");
+      plane.style.removeProperty("--py");
+      stage.style.removeProperty("--rx");
+      stage.style.removeProperty("--ry");
+    };
   }, [reduced]);
 
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden"
+      ref={stageRef}
+      className="hero-stage relative isolate flex min-h-[100svh] flex-col overflow-hidden"
     >
-      {/* scene slider */}
+      {/* 3D plane: the scenes and the wireframe sea sit behind the content */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div
-          ref={parallaxRef}
-          className="parallax-layer absolute inset-0"
-          style={{
-            transform:
-              "translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.06)",
-          }}
-        >
-          {sceneComponents.map((Scene, i) => (
-            <div
-              key={scenes[i].id}
-              className="absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
-              style={{
-                opacity: i === index ? 1 : 0,
-                pointerEvents: i === index ? "auto" : "none",
-              }}
-            >
-              <Scene />
-            </div>
-          ))}
+        <div className="hero-plane absolute inset-0">
+          <div
+            ref={parallaxRef}
+            className="parallax-layer absolute inset-0"
+            style={{
+              transform:
+                "translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.06)",
+            }}
+          >
+            {sceneComponents.map((Scene, i) => (
+              <div
+                key={scenes[i].id}
+                className="absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
+                style={{
+                  opacity: i === index ? 1 : 0,
+                  pointerEvents: i === index ? "auto" : "none",
+                }}
+              >
+                <Scene />
+              </div>
+            ))}
+          </div>
+
+          <WireframeSea />
+          <div className="hero-bottom-fade absolute inset-x-0 bottom-0 h-1/2" />
         </div>
-        <div className="hero-bottom-fade absolute inset-x-0 bottom-0 h-1/2" />
       </div>
 
-      {/* content */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-44 pt-32 text-center md:pb-40">
+      {/* content, lifted toward the viewer in 3D */}
+      <div
+        className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-44 pt-32 text-center md:pb-40"
+        style={{ transform: "translateZ(34px)" }}
+      >
         <p className="label text-peach">{profile.eyebrow}</p>
 
         <h1
@@ -115,7 +173,10 @@ export default function Hero() {
       </div>
 
       {/* bottom bar */}
-      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-cream/20 bg-ocean-deep/40 px-4 py-4 backdrop-blur-sm md:px-8 md:py-5">
+      <div
+        className="absolute inset-x-0 bottom-0 z-20 border-t border-cream/20 bg-ocean-deep/40 px-4 py-4 backdrop-blur-sm md:px-8 md:py-5"
+        style={{ transform: "translateZ(18px)" }}
+      >
         <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
           <div className="flex min-w-0 items-center gap-3">
             <MapPin className="size-4 shrink-0 text-peach" />
@@ -144,7 +205,10 @@ export default function Hero() {
           </span>
 
           <div className="flex shrink-0 items-center gap-3">
-            <span className="label tabular-nums text-cream/80" style={{ color: active.accent }}>
+            <span
+              className="label tabular-nums text-cream/80"
+              style={{ color: active.accent }}
+            >
               {active.num} / 04
             </span>
             <div className="flex items-center gap-2">

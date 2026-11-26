@@ -280,6 +280,85 @@ section[id] {
   animation: toast-in 0.28s ease-out both;
 }
 
+/* ---- 3D depth: hero stage ---- */
+.hero-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 42%;
+}
+
+.hero-plane {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.04);
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.wireframe-sea {
+  opacity: 0.85;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 54%,
+    rgba(0, 0, 0, 0.3) 62%,
+    #000 74%,
+    #000 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 54%,
+    rgba(0, 0, 0, 0.3) 62%,
+    #000 74%,
+    #000 86%,
+    transparent 100%
+  );
+}
+
+/* ---- 3D depth: tilt cards ---- */
+.tilt-scene {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  transition:
+    transform 0.12s linear,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tilt-card > * {
+  transform-style: preserve-3d;
+}
+
+.tilt-shine {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(242, 166, 107, 0.42),
+    rgba(242, 166, 107, 0) 70%
+  );
+}
+
+.tilt-card:hover .tilt-shine {
+  opacity: 1;
+}
+
 /* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   html {
