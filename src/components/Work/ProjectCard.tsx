@@ -23,7 +23,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         target="_blank"
         rel="noopener noreferrer"
         data-cursor
-        className="tilt-card group flex h-full min-h-[250px] flex-col justify-between border border-cream/25 p-6 hover:border-cream hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-peach"
+        className="tilt-card tick-corners group flex h-full min-h-[250px] flex-col justify-between border border-cream/20 p-6 hover:border-cream/70 hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-peach"
         aria-label={`${project.title}, opens live site in a new tab`}
       >
         <span className="tilt-shine" aria-hidden="true" />
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.stack.map((tag) => (
                 <li
                   key={tag}
-                  className="label rounded-full border border-cream/30 px-3 py-1 text-cream/65 transition-colors duration-300 group-hover:border-ink/30 group-hover:text-ink/70"
+                  className="label border border-cream/25 px-2.5 py-1 text-cream/60 transition-colors duration-300 group-hover:border-ink/25 group-hover:text-ink/70"
                 >
                   {tag}
                 </li>

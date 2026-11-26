@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0C3A40",
+  themeColor: "#080B0C",
   colorScheme: "dark",
 };
 
@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="antialiased">
       <body>
+        <div className="grid-field" aria-hidden="true" />
+
         <a href="#main" className="skip-link">
           Skip to content
         </a>

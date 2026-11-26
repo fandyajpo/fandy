@@ -96,9 +96,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative border-t border-cream/15 px-6 py-24 md:py-32"
+      className="relative border-t border-cream/10 px-6 py-24 md:px-10 md:py-32"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="label text-peach">05 · Get in touch</p>
         </Reveal>
@@ -192,7 +192,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   data-cursor
-                  className="group inline-flex items-center gap-3 rounded-full bg-cream px-7 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-ink transition-all duration-300 hover:-translate-y-1"
+                  className="group label inline-flex items-center gap-3 border border-cream bg-cream px-6 py-3.5 text-ink transition-colors duration-300 hover:bg-transparent hover:text-cream"
                 >
                   Send message
                   <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -214,13 +214,13 @@ export default function Contact() {
 
           {/* details */}
           <Reveal delay={0.12} className="space-y-8">
-            <div className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
+            <div className="border border-cream/20 p-6 md:p-8">
               <div className="flex items-center justify-between gap-4">
                 <p className="label text-peach">Local time</p>
                 <p className="label flex items-center gap-2 text-cream/70">
                   <span
                     aria-hidden="true"
-                    className="size-2 animate-pulse rounded-full bg-lime"
+                    className="size-1.5 animate-pulse bg-lime"
                   />
                   {profile.city}
                 </p>
@@ -237,7 +237,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <ul className="divide-y divide-cream/15 border border-cream/25">
+            <ul className="divide-y divide-cream/10 border border-cream/20">
               {contact.socials.map((social) => {
                 const Icon = iconMap[social.icon];
 
@@ -255,7 +255,7 @@ export default function Contact() {
                         type="button"
                         onClick={copyEmail}
                         data-cursor
-                        className="label ml-auto inline-flex shrink-0 items-center gap-2 rounded-full border border-cream/45 px-4 py-2 text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+                        className="label ml-auto inline-flex shrink-0 items-center gap-2 border border-cream/35 px-3 py-2 text-cream transition-colors duration-300 hover:border-cream hover:bg-cream hover:text-ink"
                         aria-label="Copy email address"
                       >
                         <CopyIcon className="size-4" />

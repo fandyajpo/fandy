@@ -73,8 +73,8 @@ export default function Cursor() {
       >
         <path
           d="M3 2 L3 21 L8 16 L11.5 23.5 L15 22 L11.5 15 L18 15 Z"
-          fill={active ? "#F2A66B" : "#FBEBD0"}
-          stroke="#17130A"
+          fill={active ? "#D8FF6B" : "#ECE6D7"}
+          stroke="#050708"
           strokeWidth="1.5"
           strokeLinejoin="round"
           className="transition-[fill] duration-200"

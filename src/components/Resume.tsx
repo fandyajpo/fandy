@@ -8,9 +8,9 @@ export default function Resume() {
   return (
     <section
       id="resume"
-      className="relative border-t border-cream/15 px-6 py-24 md:py-32"
+      className="relative border-t border-cream/10 px-6 py-24 md:px-10 md:py-32"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* print-only header for the downloaded CV */}
         <div className="print-only mb-8 border-b border-black pb-4">
           <p className="display" style={{ fontSize: 34 }}>
@@ -63,7 +63,7 @@ export default function Resume() {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {education.map((item) => (
               <Reveal key={item.school}>
-                <article className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
+                <article className="border border-cream/20 p-6 md:p-8">
                   <p className="label text-cream/50">{item.period}</p>
                   <h4 className="display mt-3 text-2xl text-cream">
                     {item.school}

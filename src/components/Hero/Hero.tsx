@@ -1,54 +1,29 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Button, { SecondaryLink } from "@/components/ui/Button";
-import { ChevronLeft, ChevronRight, MapPin } from "@/components/ui/Icons";
+import { MapPin } from "@/components/ui/Icons";
+import { useLocalTime } from "@/hooks/useLocalTime";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { profile, scenes } from "@/data/portfolio";
+import { profile } from "@/data/portfolio";
+import DiamondField from "./DiamondField";
 import WireframeSea from "./WireframeSea";
-import Alpine from "./scenes/Alpine";
-import Coastal from "./scenes/Coastal";
-import Desert from "./scenes/Desert";
-import NightCity from "./scenes/NightCity";
 
-const sceneComponents = [Alpine, Coastal, Desert, NightCity];
+const facts = profile.quickFacts.slice(0, 3);
 
 export default function Hero() {
-  const [index, setIndex] = useState(1);
   const reduced = useReducedMotion();
-  const parallaxRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLElement>(null);
-  const active = scenes[index];
+  const planeRef = useRef<HTMLDivElement>(null);
+  const time = useLocalTime(profile.timeZone);
 
-  const goTo = useCallback((next: number) => {
-    setIndex((next + scenes.length) % scenes.length);
-  }, []);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      const target = event.target as HTMLElement | null;
-      if (target?.closest("input, textarea, select, [contenteditable]")) return;
-      if (document.querySelector("dialog[open]")) return;
-      event.preventDefault();
-      setIndex((current) =>
-        event.key === "ArrowRight"
-          ? (current + 1) % scenes.length
-          : (current - 1 + scenes.length) % scenes.length,
-      );
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
-
-  // Pointer moves tilt the whole stage in 3D (--rx / --ry) and shift the
-  // scene layer inside it, so the hero has real depth rather than a flat pan.
+  // Pointer moves tilt the stage in 3D (--rx / --ry) and shift the layers
+  // inside it, so the hero reads as depth rather than a flat pan.
   useEffect(() => {
     if (reduced) return;
-    const plane = parallaxRef.current;
     const stage = stageRef.current;
-    if (!plane || !stage) return;
+    const plane = planeRef.current;
+    if (!stage || !plane) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
     let frame = 0;
@@ -61,10 +36,10 @@ export default function Hero() {
       currentX += (targetX - currentX) * 0.1;
       currentY += (targetY - currentY) * 0.1;
 
-      plane.style.setProperty("--px", `${(currentX * -26).toFixed(2)}px`);
-      plane.style.setProperty("--py", `${(currentY * -16).toFixed(2)}px`);
-      stage.style.setProperty("--ry", `${(currentX * 1.35).toFixed(2)}deg`);
-      stage.style.setProperty("--rx", `${(currentY * -0.9).toFixed(2)}deg`);
+      stage.style.setProperty("--ry", `${(currentX * 1.1).toFixed(2)}deg`);
+      stage.style.setProperty("--rx", `${(currentY * -0.8).toFixed(2)}deg`);
+      plane.style.setProperty("--px", `${(currentX * -22).toFixed(2)}px`);
+      plane.style.setProperty("--py", `${(currentY * -14).toFixed(2)}px`);
 
       if (
         Math.abs(targetX - currentX) > 0.002 ||
@@ -99,10 +74,10 @@ export default function Hero() {
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
       if (frame) cancelAnimationFrame(frame);
-      plane.style.removeProperty("--px");
-      plane.style.removeProperty("--py");
       stage.style.removeProperty("--rx");
       stage.style.removeProperty("--ry");
+      plane.style.removeProperty("--px");
+      plane.style.removeProperty("--py");
     };
   }, [reduced]);
 
@@ -112,125 +87,91 @@ export default function Hero() {
       ref={stageRef}
       className="hero-stage relative isolate flex min-h-[100svh] flex-col overflow-hidden"
     >
-      {/* 3D plane: the scenes and the wireframe sea sit behind the content */}
-      <div className="absolute inset-0" aria-hidden="true">
+      {/* 3D plane: floor grid and flying diamonds sit behind the type */}
+      <div className="depth-layer absolute inset-0" aria-hidden="true">
         <div className="hero-plane absolute inset-0">
           <div
-            ref={parallaxRef}
-            className="parallax-layer absolute inset-0"
+            ref={planeRef}
+            className="absolute inset-0"
             style={{
-              transform:
-                "translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.06)",
+              transform: "translate3d(var(--px, 0px), var(--py, 0px), 0)",
             }}
           >
-            {sceneComponents.map((Scene, i) => (
-              <div
-                key={scenes[i].id}
-                className="absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
-                style={{
-                  opacity: i === index ? 1 : 0,
-                  pointerEvents: i === index ? "auto" : "none",
-                }}
-              >
-                <Scene />
-              </div>
-            ))}
+            <WireframeSea />
+            <DiamondField />
           </div>
-
-          <WireframeSea />
           <div className="hero-bottom-fade absolute inset-x-0 bottom-0 h-1/2" />
         </div>
+        <div className="hero-hatch absolute inset-0" />
       </div>
 
-      {/* content, lifted toward the viewer in 3D */}
-      <div
-        className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-44 pt-32 text-center md:pb-40"
-        style={{ transform: "translateZ(34px)" }}
-      >
-        <p className="label text-peach">{profile.eyebrow}</p>
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-20">
+        <div className="flex items-center gap-3">
+          <span className="label text-peach">01</span>
+          <span className="h-px w-10 bg-cream/25" />
+          <span className="label text-cream/55">{profile.eyebrow}</span>
+        </div>
 
         <h1
-          className="display mt-7 text-cream"
-          style={{ fontSize: "clamp(46px, 11vw, 190px)" }}
+          className="display mt-8 text-cream"
+          style={{ fontSize: "clamp(48px, 9.5vw, 164px)" }}
         >
           {profile.headline[0]}
           <br />
-          {profile.headline[1]}
+          <span className="text-cream/85">{profile.headline[1]}</span>
         </h1>
 
-        <p
-          className="mt-8 max-w-2xl whitespace-pre-line text-[11px] uppercase leading-[2] tracking-[0.22em] text-cream/85 sm:text-[13px]"
-        >
-          {profile.pitch}
-        </p>
+        <div className="mt-10 grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:items-end">
+          <div>
+            <p className="max-w-xl whitespace-pre-line text-sm leading-relaxed text-cream/70 md:text-base">
+              {profile.pitch}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button href="#work">See the work</Button>
+              <SecondaryLink href="/cv.pdf" download>
+                Download resume
+              </SecondaryLink>
+            </div>
+          </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-          <Button href="#work">See my work</Button>
-          <SecondaryLink href="/cv.pdf" download>
-            Download resume
-          </SecondaryLink>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-l border-cream/15 pl-6 md:grid-cols-1 md:gap-y-3">
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <dt className="label text-cream/45">{fact.label}</dt>
+                <dd className="mt-1 text-sm leading-snug text-cream/85">
+                  {fact.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
 
-      {/* bottom bar */}
+      {/* instrument bar */}
       <div
-        className="absolute inset-x-0 bottom-0 z-20 border-t border-cream/20 bg-ocean-deep/40 px-4 py-4 backdrop-blur-sm md:px-8 md:py-5"
-        style={{ transform: "translateZ(18px)" }}
+        className="relative z-20 border-t border-cream/15 bg-ocean-deep/30 px-6 py-4 backdrop-blur-sm md:px-10"
+        style={{ transform: "translateZ(14px)" }}
       >
-        <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
-          <div className="flex min-w-0 items-center gap-3">
-            <MapPin className="size-4 shrink-0 text-peach" />
-            <span className="label hidden truncate text-cream/80 sm:inline">
-              {profile.city}, {profile.country}
-            </span>
-            <span className="label hidden text-cream/60 xl:inline">
-              {profile.coordinates}
-            </span>
-          </div>
-
-          <span className="hidden h-8 w-px bg-cream/30 md:block" />
-
-          <div
-            key={active.id}
-            className="label animate-fade-up whitespace-nowrap"
-            style={{ color: active.accent }}
-            aria-live="polite"
-          >
-            <span className="hidden sm:inline">{active.chapter} · </span>
-            {active.name}
-          </div>
-
-          <span className="label hidden text-cream/55 lg:inline">
-            Scroll to wander ↓
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
+          <span className="label flex items-center gap-2 text-cream/70">
+            <MapPin className="size-3.5 text-peach" />
+            {profile.city}, {profile.country}
           </span>
 
-          <div className="flex shrink-0 items-center gap-3">
-            <span
-              className="label tabular-nums text-cream/80"
-              style={{ color: active.accent }}
-            >
-              {active.num} / 04
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Previous scene"
-                onClick={() => goTo(index - 1)}
-                className="grid size-9 place-items-center rounded-full border border-cream/50 text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
-              >
-                <ChevronLeft className="size-4" />
-              </button>
-              <span className="h-5 w-px bg-cream/40" />
-              <button
-                type="button"
-                aria-label="Next scene"
-                onClick={() => goTo(index + 1)}
-                className="grid size-9 place-items-center rounded-full border border-cream/50 text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
-              >
-                <ChevronRight className="size-4" />
-              </button>
-            </div>
-          </div>
+          <span className="label hidden text-cream/40 md:inline">
+            {profile.coordinates}
+          </span>
+
+          <span className="label hidden tabular-nums text-cream/40 lg:inline">
+            Local time {time || "--:--:--"} · {profile.timeZone}
+          </span>
+
+          <a
+            href="#about"
+            className="label text-cream/70 transition-colors duration-300 hover:text-peach"
+          >
+            Scroll ↓
+          </a>
         </div>
       </div>
     </section>

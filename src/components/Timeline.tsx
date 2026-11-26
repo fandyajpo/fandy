@@ -14,15 +14,15 @@ export default function Timeline() {
           <div key={`${job.company}-${job.period}`} className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[45px] top-2 grid size-8 place-items-center rounded-full border-2 border-cream bg-ocean md:-left-[65px] md:size-9"
+              className="absolute -left-[45px] top-2 grid size-8 place-items-center border border-cream/60 bg-ocean md:-left-[65px] md:size-9"
             >
               <MapPin className="size-4 text-peach md:size-5" />
             </span>
 
             <Reveal delay={index * 0.05}>
-              <article className="border border-cream/25 bg-ocean-deep/40 p-6 md:p-8">
+              <article className="border border-cream/20 p-6 md:p-8">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="label rounded-full bg-peach px-4 py-1.5 text-ink">
+                  <span className="label bg-peach px-3 py-1.5 text-ink">
                     {job.period}
                   </span>
                   <span className="label text-cream/50">{job.location}</span>
@@ -41,7 +41,7 @@ export default function Timeline() {
                     >
                       <span
                         aria-hidden="true"
-                        className="mt-2 size-1.5 shrink-0 rounded-full bg-lime"
+                        className="mt-2 size-1.5 shrink-0 bg-lime"
                       />
                       {bullet}
                     </li>

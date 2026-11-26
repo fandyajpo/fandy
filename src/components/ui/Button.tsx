@@ -21,9 +21,8 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   const cls = [
-    "group inline-flex items-center gap-3 rounded-full bg-cream px-7 py-4",
-    "text-[13px] font-bold uppercase tracking-[0.18em] text-ink",
-    "transition-all duration-300 hover:-translate-y-1",
+    "group label inline-flex items-center gap-3 border border-cream bg-cream px-6 py-3.5",
+    "text-ink transition-colors duration-300 hover:bg-transparent hover:text-cream",
     className,
   ].join(" ");
 
@@ -78,10 +77,11 @@ export function SecondaryLink({
   className = "",
 }: SecondaryLinkProps) {
   const cls = [
-    "group inline-flex items-center gap-2 pb-1 text-[13px] font-semibold uppercase",
-    "tracking-[0.2em] text-cream bg-[linear-gradient(currentColor,currentColor)]",
-    "bg-[length:0%_1px] bg-no-repeat bg-[position:0_100%]",
-    "transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]",
+    "group label inline-flex items-center gap-2 pb-1 text-cream",
+    "bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px]",
+    "bg-no-repeat bg-[position:0_100%]",
+    "transition-[background-size,color] duration-300",
+    "hover:text-peach group-hover:bg-[length:100%_1px]",
     className,
   ].join(" ");
 

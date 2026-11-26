@@ -8,7 +8,7 @@ interface PillProps {
 export default function Pill({ children, className = "" }: PillProps) {
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border border-cream/40 px-4 py-1.5 label text-cream/85 ${className}`}
+      className={`inline-flex items-center gap-2 border border-cream/30 px-3 py-1.5 label text-cream/80 ${className}`}
     >
       {children}
     </span>

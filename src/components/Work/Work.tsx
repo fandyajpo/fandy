@@ -17,9 +17,9 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative border-t border-cream/15 px-6 py-24 md:py-32"
+      className="relative border-t border-cream/10 px-6 py-24 md:px-10 md:py-32"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="label text-peach">03 · Work</p>
         </Reveal>
@@ -54,7 +54,7 @@ export default function Work() {
                 onClick={() => setFilter(item)}
                 aria-pressed={filter === item}
                 data-cursor
-                className={`label rounded-full px-5 py-2.5 transition-all duration-300 ${
+                className={`label px-4 py-2.5 transition-all duration-300 ${
                   filter === item
                     ? "bg-cream text-ink"
                     : "border border-cream/35 text-cream/75 hover:border-cream hover:text-cream"

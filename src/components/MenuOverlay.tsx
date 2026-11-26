@@ -53,7 +53,7 @@ export default function MenuOverlay({ open, onClose }: MenuOverlayProps) {
             type="button"
             aria-label="Close menu"
             onClick={onClose}
-            className="grid size-11 place-items-center rounded-full border border-cream/60 text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+            className="grid size-11 place-items-center border border-cream/35 text-cream transition-colors duration-300 hover:border-cream hover:bg-cream hover:text-ink"
           >
             <CloseIcon className="size-5" />
           </button>

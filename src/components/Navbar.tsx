@@ -89,7 +89,7 @@ export default function Navbar() {
               aria-expanded={open}
               aria-controls="menu"
               onClick={() => setOpen(true)}
-              className="grid size-11 place-items-center rounded-full border border-cream/60 text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+              className="grid size-11 place-items-center border border-cream/35 text-cream transition-colors duration-300 hover:border-cream hover:bg-cream hover:text-ink"
             >
               <MenuIcon className="size-5" />
             </button>

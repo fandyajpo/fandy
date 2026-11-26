@@ -83,7 +83,7 @@ export default function WireframeSea() {
       for (let row = 0; row < ROWS; row += 1) {
         const step = row / (ROWS - 1);
         const z = Z_NEAR + step * (Z_FAR - Z_NEAR);
-        const alpha = 0.03 + 0.32 * Math.pow(1 - step, 1.6);
+        const alpha = 0.03 + 0.26 * Math.pow(1 - step, 1.6);
 
         context.beginPath();
         let started = false;
@@ -102,7 +102,7 @@ export default function WireframeSea() {
           }
         }
 
-        context.strokeStyle = `rgba(251, 235, 208, ${alpha.toFixed(3)})`;
+        context.strokeStyle = `rgba(125, 233, 195, ${alpha.toFixed(3)})`;
         context.lineWidth = step < 0.3 ? 1.4 : 1;
         context.stroke();
       }
@@ -128,7 +128,7 @@ export default function WireframeSea() {
           }
         }
 
-        context.strokeStyle = "rgba(251, 235, 208, 0.1)";
+        context.strokeStyle = "rgba(236, 230, 215, 0.07)";
         context.lineWidth = 1;
         context.stroke();
       }
