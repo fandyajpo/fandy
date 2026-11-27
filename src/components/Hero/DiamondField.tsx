@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 
 // Flying 3D diamonds: octahedra with per-face shading, drifting toward the
 // camera in perspective on a 2D canvas. No WebGL, no three.js.
-const IVORY = "236, 230, 215";
-const MINT = "125, 233, 195";
-const LIME = "216, 255, 107";
-const BLUE = "74, 158, 255";
+const IVORY = "255, 196, 0";
+const MINT = "226, 58, 46";
+const LIME = "20, 20, 20";
+const BLUE = "226, 58, 46";
 const RING = 0.72;
 
 interface Vec3 {
@@ -209,8 +209,8 @@ export default function DiamondField() {
           midY,
           radius * 1.9,
         );
-        glow.addColorStop(0, `rgba(${LIME}, ${(0.14 * fade).toFixed(3)})`);
-        glow.addColorStop(1, `rgba(${LIME}, 0)`);
+        glow.addColorStop(0, `rgba(${IVORY}, ${(0.4 * fade).toFixed(3)})`);
+        glow.addColorStop(1, `rgba(${IVORY}, 0)`);
         context.fillStyle = glow;
         context.beginPath();
         context.arc(midX, midY, radius * 1.9, 0, Math.PI * 2);
@@ -267,7 +267,7 @@ export default function DiamondField() {
       faces.sort((first, second) => second.depth - first.depth);
 
       const tone = shard.accent ? MINT : IVORY;
-      const edgeTone = shard.accent ? LIME : IVORY;
+      const edgeTone = LIME;
 
       for (const face of faces) {
         const pa = screen[face.a];
@@ -282,14 +282,14 @@ export default function DiamondField() {
         context.closePath();
 
         context.fillStyle = `rgba(${tone}, ${(
-          (0.05 + 0.36 * face.lum) * fade
+          (0.35 + 0.45 * face.lum) * fade
         ).toFixed(3)})`;
         context.fill();
 
         context.strokeStyle = `rgba(${edgeTone}, ${(
-          fade * (0.2 + 0.24 * face.lum)
+          fade * (0.55 + 0.4 * face.lum)
         ).toFixed(3)})`;
-        context.lineWidth = 1;
+        context.lineWidth = 2;
         context.stroke();
       }
     };

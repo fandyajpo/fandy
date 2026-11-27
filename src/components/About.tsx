@@ -52,49 +52,49 @@ function Facet() {
           <path
             d="M25 0 H0 V25"
             fill="none"
-            stroke="#ECE6D7"
+            stroke="#141414"
             strokeWidth="0.6"
             opacity="0.16"
           />
         </pattern>
         <radialGradient id="about-aura" cx="50%" cy="40%" r="58%">
-          <stop offset="0%" stopColor="#7DE9C3" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#7DE9C3" stopOpacity="0" />
+          <stop offset="0%" stopColor="#E23A2E" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#E23A2E" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       <g clipPath="url(#about-frame)">
-        <rect width="400" height="500" fill="#040607" />
+        <rect width="400" height="500" fill="#FFF6E6" />
         <rect width="400" height="500" fill="url(#about-grid)" />
         <rect width="400" height="500" fill="url(#about-aura)" />
 
-        <g fill="none" stroke="#ECE6D7" opacity="0.18">
+        <g fill="none" stroke="#141414" opacity="0.18">
           <ellipse cx="200" cy="252" rx="152" ry="50" />
           <ellipse cx="200" cy="252" rx="88" ry="148" opacity="0.55" />
         </g>
 
         <g transform="translate(200 252)">
-          <polygon points="0,-150 -104,0 0,160 104,0" fill="#ECE6D7" opacity="0.08" />
-          <polygon points="0,-150 -104,0 0,18" fill="#ECE6D7" opacity="0.9" />
-          <polygon points="0,-150 0,18 104,0" fill="#D8FF6B" opacity="0.82" />
-          <polygon points="0,18 104,0 0,160" fill="#7DE9C3" opacity="0.46" />
-          <polygon points="0,18 0,160 -104,0" fill="#ECE6D7" opacity="0.26" />
+          <polygon points="0,-150 -104,0 0,160 104,0" fill="#E23A2E" opacity="0.18" />
+          <polygon points="0,-150 -104,0 0,18" fill="#141414" opacity="0.92" />
+          <polygon points="0,-150 0,18 104,0" fill="#2F6BFF" opacity="0.9" />
+          <polygon points="0,18 104,0 0,160" fill="#E23A2E" opacity="0.85" />
+          <polygon points="0,18 0,160 -104,0" fill="#141414" opacity="0.22" />
           <polygon
             points="0,-150 -104,0 0,18 104,0"
             fill="none"
-            stroke="#ECE6D7"
-            strokeWidth="1.4"
+            stroke="#141414"
+            strokeWidth="2.4"
           />
           <polygon
             points="0,18 -104,0 0,160 104,0"
             fill="none"
-            stroke="#ECE6D7"
+            stroke="#141414"
             strokeWidth="1"
             opacity="0.55"
           />
         </g>
 
-        <g stroke="#D8FF6B" strokeWidth="2" opacity="0.65">
+        <g stroke="#2F6BFF" strokeWidth="2" opacity="0.65">
           <path d="M28 66 h16 M28 66 v16" />
           <path d="M372 66 h-16 M372 66 v16" />
           <path d="M28 434 h16 M28 434 v-16" />
@@ -105,7 +105,7 @@ function Facet() {
       <path
         d="M0,500 V200 A200,200 0 0 1 400,200 V500 Z"
         fill="none"
-        stroke="#ECE6D7"
+        stroke="#141414"
         strokeWidth="2"
         opacity="0.75"
       />

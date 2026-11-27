@@ -102,7 +102,7 @@ export default function WireframeSea() {
           }
         }
 
-        context.strokeStyle = `rgba(125, 233, 195, ${alpha.toFixed(3)})`;
+        context.strokeStyle = `rgba(20, 20, 20, ${alpha.toFixed(3)})`;
         context.lineWidth = step < 0.3 ? 1.4 : 1;
         context.stroke();
       }
@@ -128,7 +128,7 @@ export default function WireframeSea() {
           }
         }
 
-        context.strokeStyle = "rgba(236, 230, 215, 0.07)";
+        context.strokeStyle = "rgba(47, 107, 255, 0.22)";
         context.lineWidth = 1;
         context.stroke();
       }

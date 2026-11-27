@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Button, { SecondaryLink } from "@/components/ui/Button";
 import { MapPin } from "@/components/ui/Icons";
+import Burst from "@/components/ui/Burst";
 import { useLocalTime } from "@/hooks/useLocalTime";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { profile } from "@/data/portfolio";
@@ -123,7 +124,7 @@ export default function Hero() {
       className="hero-stage relative isolate flex min-h-[100svh] flex-col overflow-hidden"
     >
       {/* 3D plane: floor grid and flying diamonds sit behind the type */}
-      <div className="depth-layer absolute inset-0" aria-hidden="true">
+      <div className="depth-layer jolt absolute inset-0" aria-hidden="true">
         <div className="hero-plane absolute inset-0">
           <div
             ref={planeRef}
@@ -141,6 +142,11 @@ export default function Hero() {
       </div>
 
       <div className="hero-content relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-20">
+        <Burst
+          label="Open to work"
+          className="pointer-events-none absolute right-2 top-4 w-24 sm:right-6 sm:top-10 sm:w-36"
+        />
+
         <div className="flex items-center gap-3">
           <span className="label text-peach">01</span>
           <span className="h-px w-10 bg-cream/25" />
@@ -148,7 +154,7 @@ export default function Hero() {
         </div>
 
         <h1
-          className="display mt-8 text-cream"
+          className="comic-title display mt-8 text-cream"
           style={{ fontSize: "clamp(48px, 9.5vw, 164px)" }}
         >
           {profile.headline[0]}

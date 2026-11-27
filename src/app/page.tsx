@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main id="main">
+      <main id="main" className="shake-once">
         <Hero />
         <About />
         <Marquee items={marqueeItems} />
